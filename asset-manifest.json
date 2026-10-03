@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/satyaahaar/static/css/main.9a567235.css",
+    "main.js": "/satyaahaar/static/js/main.282482b5.js",
+    "index.html": "/satyaahaar/index.html",
+    "main.9a567235.css.map": "/satyaahaar/static/css/main.9a567235.css.map",
+    "main.282482b5.js.map": "/satyaahaar/static/js/main.282482b5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a567235.css",
+    "static/js/main.282482b5.js"
+  ]
+}
