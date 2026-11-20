@@ -1,74 +1,17 @@
-import { useEffect, useRef } from "react";
-import "./landing.css";
-
-const BASE_URL = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-function assetUrl(path) {
-  return `${BASE_URL}/assets/home/${path}`;
-}
+import Header from "./sections/Header";
+import Topbar from "./sections/Topbar";
+import BackToTop from "./sections/BackToTop";
+import { useScrollState } from "./hooks/useScrollState";
 
 export default function LandingPage() {
-  const pageRef = useRef(null);
+  const { scrolled, hidden } = useScrollState();
 
-  useEffect(() => {
-    let cancelled = false;
-    const page = pageRef.current;
-    const stylesheet = document.createElement("link");
-    stylesheet.rel = "stylesheet";
-    stylesheet.href = assetUrl("css/style.css");
-    document.head.appendChild(stylesheet);
-
-    const handleAnchorClick = (event) => {
-      const anchor = event.target.closest("a");
-      if (!anchor || !page.contains(anchor)) return;
-      const href = anchor.getAttribute("href") || "";
-      if (!href.startsWith("#") || href.startsWith("#/")) return;
-      event.preventDefault();
-      const target = href === "#" ? page : document.getElementById(href.slice(1));
-      target?.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
-
-    page.addEventListener("click", handleAnchorClick);
-
-    fetch(assetUrl("body.html"))
-      .then((response) => {
-        if (!response.ok) throw new Error("Landing page could not be loaded");
-        return response.text();
-      })
-      .then((markup) => {
-        if (cancelled) return;
-        page.innerHTML = markup;
-
-        const legacyScript = document.createElement("script");
-        legacyScript.src = assetUrl("js/script.js");
-        legacyScript.onload = () => window.dispatchEvent(new Event("load"));
-        page.appendChild(legacyScript);
-
-        const ioniconsModule = document.createElement("script");
-        ioniconsModule.type = "module";
-        ioniconsModule.src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js";
-        page.appendChild(ioniconsModule);
-
-        const ioniconsFallback = document.createElement("script");
-        ioniconsFallback.noModule = true;
-        ioniconsFallback.src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js";
-        page.appendChild(ioniconsFallback);
-      })
-      .catch((error) => {
-        console.error(error);
-        if (!cancelled) {
-          page.innerHTML = "<p class=\"landing-load-error\">SatyaAhaar is loading. Please refresh the page.</p>";
-        }
-      });
-
-    return () => {
-      cancelled = true;
-      page.removeEventListener("click", handleAnchorClick);
-      page.innerHTML = "";
-      stylesheet.remove();
-      document.body.classList.remove("nav-active", "loaded");
-    };
-  }, []);
-
-  return <div ref={pageRef} className="landing-shell" />;
+  return (
+    <div className="min-h-screen bg-eerie-1 font-sans text-body-2 leading-[1.85] text-white">
+      <Topbar hidden={scrolled} />
+      <Header scrolled={scrolled} hidden={hidden} />
+      <main />
+      <BackToTop visible={scrolled} />
+    </div>
+  );
 }

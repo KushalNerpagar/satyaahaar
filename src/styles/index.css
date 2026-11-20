@@ -47,6 +47,51 @@
   /* Misc */
   --radius-card: 1.5rem;
   --shadow-soft: 0 0 25px hsl(0 0% 0% / 0.25);
+
+  /* Animations */
+  --animate-move: move 5s linear infinite;
+  --animate-rotate-slow: rotate360 15s linear infinite;
+  --animate-slide-reveal: slide-reveal 1s ease forwards;
+  --animate-smooth-scale: smooth-scale 7s linear forwards;
+
+  @keyframes move {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(30px);
+    }
+  }
+
+  @keyframes rotate360 {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes slide-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes smooth-scale {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.15);
+    }
+  }
 }
 
 @layer base {
