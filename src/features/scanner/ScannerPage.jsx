@@ -2,9 +2,8 @@ import { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Html5QrcodePlugin from "./Html5QrcodePlugin";
+import { getProduct } from "../../lib/api/openfoodfacts";
 import "./scanner.css";
-
-const PRODUCT_API = "https://world.openfoodfacts.net/api/v2/product";
 
 function showScanError(message) {
   toast.error(message, { position: "top-right", autoClose: 4500 });
@@ -18,28 +17,12 @@ export default function ScannerPage() {
   const lookupProduct = useCallback(
     async (value) => {
       const normalized = value.trim();
-      if (!/^\d{8,14}$/.test(normalized)) {
-        showScanError("Enter a valid 8–14 digit barcode.");
-        return;
-      }
-
       setIsLoading(true);
       try {
-        const response = await fetch(`${PRODUCT_API}/${normalized}`);
-        if (!response.ok) throw new Error("Product service is unavailable");
-        const data = await response.json();
-
-        if (data.status !== 1 || !data.product) {
-          showScanError("No product was found for that barcode.");
-          return;
-        }
-
-        navigate(`/product/${normalized}`, {
-          state: { productData: data.product },
-        });
+        const product = await getProduct(normalized);
+        navigate(`/product/${normalized}`, { state: { productData: product } });
       } catch (error) {
-        console.error(error);
-        showScanError("Could not load product information. Please try again.");
+        if (error.code !== "aborted") showScanError(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -64,8 +47,8 @@ export default function ScannerPage() {
         <p className="eyebrow">Nutrition explorer</p>
         <h1 id="scanner-title">Scan a food product</h1>
         <p className="scanner-intro">
-          Enter a barcode or use your camera to view nutrition, ingredients,
-          categories, and sustainability information.
+          Enter a barcode or use your camera to view nutrition, ingredients, categories, and
+          sustainability information.
         </p>
 
         <form
@@ -91,7 +74,9 @@ export default function ScannerPage() {
           </div>
         </form>
 
-        <div className="scanner-divider"><span>or scan with camera</span></div>
+        <div className="scanner-divider">
+          <span>or scan with camera</span>
+        </div>
 
         <div className="camera-scanner">
           <Html5QrcodePlugin

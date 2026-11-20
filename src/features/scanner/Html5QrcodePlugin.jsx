@@ -38,7 +38,6 @@ const Html5QrcodePlugin = (props) => {
         const isVerbose = verbose === true;
         // Suceess callback is required.
         if (!qrCodeSuccessCallback) {
-            // eslint-disable-next-line no-throw-literal
             throw new Error("qrCodeSuccessCallback is required callback.");
         }
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, isVerbose);

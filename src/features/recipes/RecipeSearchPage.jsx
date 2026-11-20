@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getMealById, searchMealsByIngredient } from "../../lib/api/themealdb";
 import "./recipes.css";
-
-const MEAL_API = "https://www.themealdb.com/api/json/v1/1";
 
 export default function RecipeSearchPage() {
   const [query, setQuery] = useState("");
@@ -13,26 +12,18 @@ export default function RecipeSearchPage() {
 
   async function searchMeals(event) {
     event.preventDefault();
-    const ingredient = query.trim();
-    if (!ingredient) {
-      setError("Enter an ingredient to search.");
-      setMeals([]);
-      return;
-    }
-
     setIsLoading(true);
     setError("");
     setSelectedMeal(null);
     try {
-      const response = await fetch(`${MEAL_API}/filter.php?i=${encodeURIComponent(ingredient)}`);
-      if (!response.ok) throw new Error("Recipe service is unavailable");
-      const data = await response.json();
-      setMeals(data.meals || []);
-      if (!data.meals) setError("No meals found for that ingredient.");
+      const results = await searchMealsByIngredient(query);
+      setMeals(results);
+      if (results.length === 0) setError("No meals found for that ingredient.");
     } catch (requestError) {
-      console.error(requestError);
-      setError("Could not load recipes. Please try again.");
-      setMeals([]);
+      if (requestError.code !== "aborted") {
+        setError(requestError.message);
+        setMeals([]);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -40,13 +31,9 @@ export default function RecipeSearchPage() {
 
   async function openRecipe(id) {
     try {
-      const response = await fetch(`${MEAL_API}/lookup.php?i=${id}`);
-      if (!response.ok) throw new Error("Recipe details are unavailable");
-      const data = await response.json();
-      setSelectedMeal(data.meals?.[0] || null);
+      setSelectedMeal(await getMealById(id));
     } catch (requestError) {
-      console.error(requestError);
-      setError("Could not load that recipe.");
+      if (requestError.code !== "aborted") setError(requestError.message);
     }
   }
 

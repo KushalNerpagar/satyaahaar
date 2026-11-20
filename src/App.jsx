@@ -1,7 +1,7 @@
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import LandingPage from "./pages/LandingPage/LandingPage";
+import LandingPage from "./features/landing/LandingPage";
 import ScannerPage from "./features/scanner/ScannerPage";
 import ProductPage from "./features/scanner/ProductPage";
 import RecipeSearchPage from "./features/recipes/RecipeSearchPage";
