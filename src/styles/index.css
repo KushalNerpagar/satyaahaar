@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@import "@fontsource/forum/400.css";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+@import "@fontsource/dm-sans/700.css";
+
+/*
+  Design tokens ported from the original Grilli template.
+  The source stylesheet used a 10px root font-size; every value here is
+  converted to a 16px root (literal rem values multiplied by 0.625).
+*/
+@theme {
+  /* Colors */
+  --color-gold: hsl(38 61% 73%);
+  --color-quick-silver: hsl(0 0% 65%);
+  --color-davys-grey: hsl(30 3% 34%);
+  --color-smoky-1: hsl(40 12% 5%);
+  --color-smoky-2: hsl(30 8% 5%);
+  --color-smoky-3: hsl(0 3% 7%);
+  --color-eerie-1: hsl(210 4% 9%);
+  --color-eerie-2: hsl(210 4% 11%);
+  --color-eerie-3: hsl(180 2% 8%);
+  --color-eerie-4: hsl(0 0% 13%);
+
+  /* Typography */
+  --font-display: "Forum", cursive;
+  --font-sans: "DM Sans", sans-serif;
+
+  --text-display-1: calc(0.8125rem + 6.7vw);
+  --text-headline-1: calc(1.25rem + 2.5vw);
+  --text-headline-2: calc(0.8125rem + 2.4vw);
+  --text-title-1: calc(1rem + 1.2vw);
+  --text-title-2: 1.375rem;
+  --text-body-1: 1.5rem;
+  --text-body-2: 1rem;
+  --text-label-1: 0.875rem;
+  --text-label-2: 0.75rem;
+
+  /* Breakpoints from the template */
+  --breakpoint-sm: 35.9375rem; /* 575px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 62rem; /* 992px */
+  --breakpoint-xl: 75rem; /* 1200px */
+  --breakpoint-2xl: 87.5rem; /* 1400px */
+
+  /* Misc */
+  --radius-card: 1.5rem;
+  --shadow-soft: 0 0 25px hsl(0 0% 0% / 0.25);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: #f7faf8;
+    color: #17342b;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+  }
+}

@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
 import "./landing.css";
 
+const BASE_URL = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 function assetUrl(path) {
-  const base = process.env.PUBLIC_URL || "";
-  return `${base}/assets/home/${path}`;
+  return `${BASE_URL}/assets/home/${path}`;
 }
 
 export default function LandingPage() {
