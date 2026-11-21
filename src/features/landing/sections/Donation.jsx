@@ -44,6 +44,7 @@ export default function Donation() {
                 name="name"
                 autoComplete="off"
                 placeholder="Your name"
+                aria-label="Your name"
                 className={`${FIELD} mb-5`}
               />
               <input
@@ -51,6 +52,7 @@ export default function Donation() {
                 name="phone"
                 autoComplete="off"
                 placeholder="Phone number"
+                aria-label="Phone number"
                 className={`${FIELD} mb-5`}
               />
             </div>
@@ -120,6 +122,7 @@ export default function Donation() {
               name="message"
               autoComplete="off"
               placeholder="Message"
+              aria-label="Message"
               className={`${FIELD} mb-5 h-[140px] resize-none py-5 leading-none`}
             />
 
@@ -155,7 +158,14 @@ export default function Donation() {
 
             <p className="mb-[5px] font-bold">Idea hub</p>
             <address className="mb-[25px] not-italic leading-[1.5] text-quick-silver">
-              https://sevasadan.org/meal-donation
+              <a
+                href="https://sevasadan.org/meal-donation"
+                target="_blank"
+                rel="noreferrer"
+                className="underline-offset-4 hover:text-gold hover:underline"
+              >
+                sevasadan.org/meal-donation
+              </a>
             </address>
 
             <p className="mb-[5px] font-bold">Delivery &amp; pick up</p>

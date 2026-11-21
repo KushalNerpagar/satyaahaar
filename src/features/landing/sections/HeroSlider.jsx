@@ -17,6 +17,8 @@ export default function HeroSlider() {
     <section
       id="home"
       aria-label="Welcome"
+      onMouseEnter={pause}
+      onMouseLeave={resume}
       className="relative z-10 min-h-screen overflow-hidden py-[120px] text-center lg:h-[880px]"
     >
       <ul>

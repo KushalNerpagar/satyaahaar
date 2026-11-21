@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import PageHeader from "../../components/layout/PageHeader";
+import SkipLink from "../../components/ui/SkipLink";
 import ScoreBadge from "./components/ScoreBadge";
 import { getProduct } from "../../lib/api/openfoodfacts";
 import { formatTagList, nutrientValue } from "../../lib/formatters";
@@ -81,9 +82,10 @@ export default function ProductPage() {
 
   return (
     <div className="min-h-screen bg-eerie-1 font-sans text-body-2 leading-[1.85] text-white">
+      <SkipLink />
       <PageHeader />
 
-      <main className="mx-auto w-full max-w-[1100px] px-4 py-10">
+      <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-[1100px] px-4 py-10 outline-none">
         <Link
           to="/scanner"
           className="inline-flex items-center gap-2 text-label-2 font-bold uppercase tracking-[0.2em] text-gold transition-colors hover:text-white"

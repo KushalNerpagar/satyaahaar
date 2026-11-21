@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PageLoader from "./components/ui/PageLoader";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import RouteTitle from "./components/layout/RouteTitle";
 
 const LandingPage = lazy(() => import("./features/landing/LandingPage"));
 const ScannerPage = lazy(() => import("./features/scanner/ScannerPage"));
@@ -14,6 +15,7 @@ function App() {
   return (
     <HashRouter>
       <ScrollToTop />
+      <RouteTitle />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />

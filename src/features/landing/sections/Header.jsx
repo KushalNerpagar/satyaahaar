@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import Button from "../../../components/ui/Button";
 import { NAV_LINKS, SITE } from "../content";
@@ -12,6 +12,18 @@ function scrollToSection(event, href) {
 
 export default function Header({ scrolled, hidden }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const wasOpen = useRef(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      closeButtonRef.current?.focus();
+    } else if (wasOpen.current) {
+      menuButtonRef.current?.focus();
+    }
+    wasOpen.current = menuOpen;
+  }, [menuOpen]);
 
   useEffect(() => {
     if (!menuOpen) return undefined;
@@ -52,6 +64,7 @@ export default function Header({ scrolled, hidden }) {
             }`}
           >
             <button
+              ref={closeButtonRef}
               type="button"
               onClick={() => setMenuOpen(false)}
               aria-label="Close menu"
@@ -117,6 +130,7 @@ export default function Header({ scrolled, hidden }) {
           </div>
 
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"

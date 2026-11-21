@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Loader2, Search, X } from "lucide-react";
 import PageHeader from "../../components/layout/PageHeader";
+import SkipLink from "../../components/ui/SkipLink";
 import { getMealById, searchMealsByIngredient } from "../../lib/api/themealdb";
 
 function MealImage({ src, alt, className = "" }) {
@@ -248,9 +249,10 @@ export default function RecipeSearchPage() {
 
   return (
     <div className="min-h-screen bg-eerie-1 font-sans text-body-2 leading-[1.85] text-white">
+      <SkipLink />
       <PageHeader />
 
-      <main className="mx-auto w-full max-w-[1100px] px-4 py-12">
+      <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-[1100px] px-4 py-12 outline-none">
         <p className="mb-3 text-label-2 font-bold uppercase tracking-[0.4em] text-gold">
           Recipe finder
         </p>
