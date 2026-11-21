@@ -8,3 +8,8 @@ coverage/
 .target-repo/
 .DS_Store
 *.log
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
