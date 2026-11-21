@@ -48,7 +48,7 @@ export const HERO_SLIDES = [
     ),
     text: "Eat that which feels delightful, with proper food knowledge.",
     cta: { label: "View Blog", href: "#about" },
-    image: "images/star1 (Custom).png",
+    image: "images/star1.jpg",
   },
   {
     subtitle: "Label Reading",
