@@ -4,7 +4,7 @@ import { homeAsset } from "../../../lib/assets";
 import { HERO_SLIDES } from "../content";
 import { useHeroSlider } from "../hooks/useHeroSlider";
 
-const REVEAL_DELAYS = ["500ms", "1000ms", "1500ms", "2000ms"];
+const REVEAL_DELAYS = ["0ms", "120ms", "240ms", "360ms"];
 
 function revealClass(active) {
   return active ? "animate-slide-reveal" : "opacity-0";
@@ -88,6 +88,7 @@ export default function HeroSlider() {
                   href={slide.cta.href}
                   target={slide.cta.href.startsWith("http") ? "_blank" : undefined}
                   rel={slide.cta.href.startsWith("http") ? "noreferrer" : undefined}
+                  aria-label={`${slide.cta.label}: ${slide.subtitle}`}
                 >
                   {slide.cta.label}
                 </Button>

@@ -45,7 +45,12 @@ export default function Updates() {
         </ul>
 
         <div className="mt-10 text-center">
-          <Button href="https://www.today.com/food" target="_blank" rel="noreferrer">
+          <Button
+            href="https://www.today.com/food"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View blog: health news"
+          >
             View blog
           </Button>
         </div>

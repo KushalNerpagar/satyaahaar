@@ -67,7 +67,9 @@ export default function NutriScoreGrid() {
         </p>
 
         <div className="mt-[26px] text-center">
-          <Button href="#/recipes">View more</Button>
+          <Button href="#/recipes" aria-label="View more product Nutri-Scores">
+            View more
+          </Button>
         </div>
       </div>
 

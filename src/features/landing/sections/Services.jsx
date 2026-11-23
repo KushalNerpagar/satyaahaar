@@ -52,6 +52,7 @@ export default function Services() {
                   </h3>
                   <a
                     href={service.href}
+                    aria-label={`View context: ${service.title}`}
                     className="inline-block pb-1 text-label-2 font-bold uppercase tracking-[0.2em] text-gold transition-colors hover:text-white"
                   >
                     View context
