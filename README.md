@@ -6,6 +6,7 @@
 
 [![Deploy](https://github.com/KushalNerpagar/satyaahaar/actions/workflows/deploy.yml/badge.svg)](https://github.com/KushalNerpagar/satyaahaar/actions/workflows/deploy.yml)
 [![Tests](https://img.shields.io/badge/tests-28%20unit%20%2B%209%20e2e-brightgreen)](#testing)
+[![Lighthouse](https://img.shields.io/badge/lighthouse-90%2B-brightgreen)](#quality)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **[Live demo →](https://kushalnerpagar.github.io/satyaahaar/)**
@@ -118,6 +119,19 @@ Coverage includes:
 - A console-error guard across all core routes
 
 The Playwright config starts `vite preview` on port `4173`. Run `npx playwright install chromium` once before the first e2e run.
+
+## Quality
+
+Measured against the live GitHub Pages deployment with Lighthouse (mobile):
+
+| Category | Score |
+| --- | --- |
+| Performance | 90–93 |
+| Accessibility | 100 |
+| Best practices | 100 |
+| SEO | 100 |
+
+Performance work includes route-level code splitting (the scanner bundle is only loaded on demand), responsive hero images with `srcset`, compressed photography, self-hosted fonts, and a fast hero reveal so the largest content paints early.
 
 ## Data sources
 
