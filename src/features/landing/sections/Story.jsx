@@ -37,10 +37,10 @@ export default function Story() {
             href="https://www.sciencedirect.com/science/article/abs/pii/S0950329324001344"
             target="_blank"
             rel="noreferrer"
-            aria-label="Read more about food literacy research"
+            aria-label="Read the research on food literacy"
             className="mt-[26px] lg:mx-0"
           >
-            Read more
+            Read the research
           </Button>
         </div>
 

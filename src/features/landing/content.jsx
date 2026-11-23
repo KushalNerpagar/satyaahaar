@@ -37,6 +37,7 @@ export const HERO_SLIDES = [
       href: "https://himalayarestaurant.com.au/the-health-benefits-of-traditional-indian-food/",
     },
     image: "images/hero-slider-1.jpg",
+    imageSmall: "images/hero-slider-1-960.jpg",
   },
   {
     subtitle: "Delightful experience",
@@ -49,6 +50,7 @@ export const HERO_SLIDES = [
     text: "Eat that which feels delightful, with proper food knowledge.",
     cta: { label: "View Blog", href: "#about" },
     image: "images/star1.jpg",
+    imageSmall: "images/star1-960.jpg",
   },
   {
     subtitle: "Label Reading",
@@ -63,7 +65,8 @@ export const HERO_SLIDES = [
       label: "View Blog",
       href: "https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label",
     },
-    image: "images/label read (Custom) (Custom).jpg",
+    image: "images/label-read.jpg",
+    imageSmall: "images/label-read-960.jpg",
   },
 ];
 

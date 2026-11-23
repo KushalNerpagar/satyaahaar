@@ -38,6 +38,12 @@ export default function HeroSlider() {
               >
                 <img
                   src={homeAsset(slide.image)}
+                  srcSet={
+                    slide.imageSmall
+                      ? `${homeAsset(slide.imageSmall)} 960w, ${homeAsset(slide.image)} 1880w`
+                      : undefined
+                  }
+                  sizes="100vw"
                   alt=""
                   className="h-full w-full object-cover"
                   loading={slideIndex === 0 ? "eager" : "lazy"}
