@@ -140,9 +140,9 @@ The landing-page visual design is adapted from the MIT-licensed **[Grilli](https
 
 This project consolidates three earlier college projects into one codebase:
 
-- `05kaliki/home` — the original static landing page
-- `05kaliki/Recipe` — the barcode scanner
-- `05kaliki/Meal_search` — the recipe search
+- [05kaliki/home](https://github.com/05kaliki/home) — the original static landing page
+- [05kaliki/Recipe](https://github.com/05kaliki/Recipe) — the barcode scanner
+- [05kaliki/Meal_search](https://github.com/05kaliki/Meal_search) — the recipe search
 
 ## License
 
