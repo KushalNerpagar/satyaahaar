@@ -56,6 +56,8 @@ export default function HeroSlider() {
                   src={homeAsset("images/separator.svg")}
                   alt=""
                   aria-hidden="true"
+                  width="97"
+                  height="13"
                   className="mx-auto my-3.5 mb-5 w-[100px]"
                 />
               </div>

@@ -32,7 +32,10 @@ export default function Donation() {
 
             <p className="mb-10 text-center">
               Help on{" "}
-              <a href={SITE.supportPhoneHref} className="text-gold underline-offset-4 hover:underline">
+              <a
+                href={SITE.supportPhoneHref}
+                className="text-gold underline underline-offset-4"
+              >
                 {SITE.supportPhone}
               </a>{" "}
               or fill out donation details.

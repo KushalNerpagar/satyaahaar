@@ -1,7 +1,5 @@
 import { lazy, Suspense } from "react";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import PageLoader from "./components/ui/PageLoader";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import RouteTitle from "./components/layout/RouteTitle";
@@ -25,7 +23,6 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
-      <ToastContainer newestOnTop />
     </HashRouter>
   );
 }

@@ -48,6 +48,8 @@ export default function Story() {
             ref={bannerRef}
             src={homeAsset("images/about-banner.jpg")}
             alt="A table of freshly prepared food"
+            width="570"
+            height="570"
             loading="lazy"
             className="w-full pl-[50px] sm:pl-[90px]"
           />
@@ -61,6 +63,8 @@ export default function Story() {
             <img
               src={homeAsset("images/about-abs-image.jpg")}
               alt=""
+              width="285"
+              height="285"
               loading="lazy"
               className="w-full"
             />

@@ -1,7 +1,8 @@
 import { useCallback, useRef, useState } from "react";
 import { Camera, CameraOff, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import PageHeader from "../../components/layout/PageHeader";
 import SkipLink from "../../components/ui/SkipLink";
 import Html5QrcodePlugin from "./Html5QrcodePlugin";
@@ -147,6 +148,8 @@ export default function ScannerPage() {
           </p>
         </section>
       </main>
+
+      <ToastContainer newestOnTop />
     </div>
   );
 }

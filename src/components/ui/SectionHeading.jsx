@@ -10,6 +10,8 @@ export default function SectionHeading({ subtitle, title, className = "text-cent
         src={homeAsset("images/separator.svg")}
         alt=""
         aria-hidden="true"
+        width="97"
+        height="13"
         className="mx-auto mt-[5px] mb-4 h-auto w-[100px]"
       />
       <h2 className={`font-display text-headline-1 leading-[1.2] text-white ${titleClassName}`}>

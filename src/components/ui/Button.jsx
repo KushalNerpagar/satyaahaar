@@ -35,7 +35,7 @@ export default function Button({
       </span>
       <span
         aria-hidden="true"
-        className={`absolute left-1/2 top-full min-w-max -translate-x-1/2 transition-all duration-300 group-hover:top-1/2 group-hover:-translate-y-1/2 group-focus-visible:top-1/2 group-focus-visible:-translate-y-1/2 ${LABEL_COLORS[variant]}`}
+        className={`invisible absolute left-1/2 top-full min-w-max -translate-x-1/2 transition-all duration-300 group-hover:visible group-hover:top-1/2 group-hover:-translate-y-1/2 group-focus-visible:visible group-focus-visible:top-1/2 group-focus-visible:-translate-y-1/2 ${LABEL_COLORS[variant]}`}
       >
         {children}
       </span>
