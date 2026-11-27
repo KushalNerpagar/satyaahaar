@@ -51,22 +51,6 @@ export default function Story() {
             loading="lazy"
             className="w-full pl-[50px] sm:pl-[90px]"
           />
-
-          <div className="relative mt-6 ml-[50px] w-[150px] py-[50px] sm:mt-8 sm:ml-[90px] sm:w-[285px]">
-            <span
-              aria-hidden="true"
-              className="absolute inset-y-0 left-1/2 -z-10 w-[140px] -translate-x-1/2 bg-repeat"
-              style={{ backgroundImage: `url("${homeAsset("images/img-pattern.svg")}")` }}
-            />
-            <img
-              src={homeAsset("images/about-abs-image.jpg")}
-              alt="A diner enjoying a freshly prepared meal"
-              width="285"
-              height="285"
-              loading="lazy"
-              className="relative w-full"
-            />
-          </div>
         </figure>
       </div>
 
