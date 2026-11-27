@@ -1,4 +1,5 @@
 import Button from "../../../components/ui/Button";
+import GradeScale from "../../../components/ui/GradeScale";
 import SectionHeading from "../../../components/ui/SectionHeading";
 import { homeAsset } from "../../../lib/assets";
 import { NUTRI_SCORES } from "../content";
@@ -61,7 +62,12 @@ export default function NutriScoreGrid() {
           </ul>
         </div>
 
-        <p className="mt-12 text-center text-body-1">
+        <GradeScale
+          title="What the grades mean"
+          className="mt-12 rounded-card border border-white/10 bg-smoky-1 p-5 sm:p-6"
+        />
+
+        <p className="mt-10 text-center text-body-1">
           Stay always <span className="text-gold">healthy</span> and{" "}
           <span className="text-gold">fit</span>
         </p>

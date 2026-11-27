@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import PageHeader from "../../components/layout/PageHeader";
+import GradeScale from "../../components/ui/GradeScale";
 import SkipLink from "../../components/ui/SkipLink";
 import ScoreBadge from "./components/ScoreBadge";
 import { getProduct } from "../../lib/api/openfoodfacts";
@@ -10,6 +11,13 @@ import { formatTagList, nutrientValue } from "../../lib/formatters";
 function formatAmount(value) {
   if (value == null) return null;
   return Number.isInteger(value) ? String(value) : value.toFixed(1);
+}
+
+function scoredGrade(grade) {
+  const key = String(grade ?? "")
+    .trim()
+    .toLowerCase();
+  return /^[a-e]$/.test(key) ? key : undefined;
 }
 
 function TagList({ title, tags }) {
@@ -85,7 +93,11 @@ export default function ProductPage() {
       <SkipLink />
       <PageHeader />
 
-      <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-[1100px] px-4 py-10 outline-none">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="mx-auto w-full max-w-[1100px] px-4 py-10 outline-none"
+      >
         <Link
           to="/scanner"
           className="inline-flex items-center gap-2 text-label-2 font-bold uppercase tracking-[0.2em] text-gold transition-colors hover:text-white"
@@ -146,6 +158,11 @@ export default function ProductPage() {
                 <ScoreBadge label="Nutri-Score" grade={product.nutriscore_grade} />
                 <ScoreBadge label="Eco-Score" grade={product.ecoscore_grade} />
               </div>
+
+              <GradeScale
+                activeGrade={scoredGrade(product.nutriscore_grade)}
+                className="mt-8 rounded-card border border-white/10 bg-white/5 p-5"
+              />
 
               {nutrients.length > 0 && (
                 <section className="mt-8">

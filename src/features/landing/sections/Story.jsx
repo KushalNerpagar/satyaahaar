@@ -4,8 +4,7 @@ import { homeAsset } from "../../../lib/assets";
 import { useParallax } from "../hooks/useParallax";
 
 export default function Story() {
-  const bannerRef = useParallax(1);
-  const insetRef = useParallax(1.75);
+  const figureRef = useParallax(1);
 
   return (
     <section
@@ -23,12 +22,11 @@ export default function Story() {
           />
 
           <p className="mx-auto mt-4 mb-8 max-w-[420px] text-quick-silver lg:mx-0">
-            Food literacy is not just knowledge — it is a shield against the hidden dangers in
-            what we consume. Every bite has the power to nourish or harm, and without the wisdom
-            to tell safe, wholesome food from contaminated options, we risk our health. Being
-            food literate means protecting ourselves and our loved ones, choosing safety over
-            ignorance, and building a future where preventable illness no longer catches us
-            unprepared.
+            Food literacy is not just knowledge — it is a shield against the hidden dangers in what
+            we consume. Every bite has the power to nourish or harm, and without the wisdom to tell
+            safe, wholesome food from contaminated options, we risk our health. Being food literate
+            means protecting ourselves and our loved ones, choosing safety over ignorance, and
+            building a future where preventable illness no longer catches us unprepared.
           </p>
 
           <p className="font-bold">Be literate</p>
@@ -44,9 +42,8 @@ export default function Story() {
           </Button>
         </div>
 
-        <figure className="relative mb-[120px]">
+        <figure ref={figureRef} className="relative">
           <img
-            ref={bannerRef}
             src={homeAsset("images/about-banner.jpg")}
             alt="A table of freshly prepared food"
             width="570"
@@ -55,7 +52,7 @@ export default function Story() {
             className="w-full pl-[50px] sm:pl-[90px]"
           />
 
-          <div ref={insetRef} className="absolute -bottom-[120px] left-0 w-[150px] py-[50px] sm:w-[285px]">
+          <div className="relative mt-6 ml-[50px] w-[150px] py-[50px] sm:mt-8 sm:ml-[90px] sm:w-[285px]">
             <span
               aria-hidden="true"
               className="absolute inset-y-0 left-1/2 -z-10 w-[140px] -translate-x-1/2 bg-repeat"
@@ -63,11 +60,11 @@ export default function Story() {
             />
             <img
               src={homeAsset("images/about-abs-image.jpg")}
-              alt=""
+              alt="A diner enjoying a freshly prepared meal"
               width="285"
               height="285"
               loading="lazy"
-              className="w-full"
+              className="relative w-full"
             />
           </div>
         </figure>
